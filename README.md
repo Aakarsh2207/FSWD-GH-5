@@ -48,3 +48,9 @@ GET: Get all issued books with the fine
     >> npm i nodemon --save-dev
 
     >> npm run dev
+
+
+MVC
+    >> M: Model (Schema, the structure of our mongodb collection) 
+    >> V: View (Frontend part) 
+    >> C: Controller (Brain or logic of a route)
