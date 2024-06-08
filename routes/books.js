@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 const {UserModel, BookModel} = require("../models");
-const { getAllBooks, getSingleBookById, addNewBook } = require("../controllers/book-controller");
+const { getAllBooks, getSingleBookById, addNewBook, updateBookById } = require("../controllers/book-controller");
 
 
 
@@ -90,33 +90,35 @@ router.post("/", addNewBook)
  * Access: Public
  * Paramaters: ID
  */
-router.put('/:id', (req, res)=>{
-    const {id} = req.params;
-    const {data} = req.body;
+// router.put('/:id', (req, res)=>{
+//     const {id} = req.params;
+//     const {data} = req.body;
 
-    const book = books.find((each)=> each.id === id);
-    if(!book){
-        return res.status(404).json({
-            success: false,
-            message: "Book Not Found For The Given Id :-("
-        })
-    }
+//     const book = books.find((each)=> each.id === id);
+//     if(!book){
+//         return res.status(404).json({
+//             success: false,
+//             message: "Book Not Found For The Given Id :-("
+//         })
+//     }
 
-    const updateBook = books.map((each)=>{
-        if(each.id===id){
-            return {
-                ...each,
-                ...data
-            }
-        }
-        return each;
-    })
-    return res.status(200).json({
-        success: true,
-        data: updateBook
-    })
+//     const updateBook = books.map((each)=>{
+//         if(each.id===id){
+//             return {
+//                 ...each,
+//                 ...data
+//             }
+//         }
+//         return each;
+//     })
+//     return res.status(200).json({
+//         success: true,
+//         data: updateBook
+//     })
 
-})
+// })
+
+router.put('/:id', updateBookById)      //book-controller.js - JS
 
 
 /**

@@ -84,5 +84,38 @@ exports.addNewBook = async(req, res)=>{
     })
 }
 
+exports.updateBookById = async (req, res)=>{
+    const {id} = req.params;
+    const {data} = req.body;
+
+    // const book = books.find((each)=> each.id === id);
+    // if(!book){
+    //     return res.status(404).json({
+    //         success: false,
+    //         message: "Book Not Found For The Given Id :-("
+    //     })
+    // }
+
+    // const updateBook = books.map((each)=>{
+    //     if(each.id===id){
+    //         return {
+    //             ...each,
+    //             ...data
+    //         }
+    //     }
+    //     return each;
+    // })
+
+    const updateBook = await BookModel.findOneAndUpdate({
+        _id: id,        //_id - keyword - its something Auto Incremented & taken care by MongoDB
+    }, data, {new: true})       //new thing says i want this particular one to be latestly present on the screen
+
+    return res.status(200).json({
+        success: true,
+        data: updateBook
+    })
+
+}
+
 
 // module.exports = {getAllBooks, getSingleBookById}
