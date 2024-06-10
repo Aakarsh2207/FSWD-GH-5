@@ -1,3 +1,6 @@
+//FSWD GH-5
+//data folder not required in this project, it is of previous Project - FSWD GH-4 
+
 # Book Record Managamnet System
 
 # Routes and Endpoints
@@ -28,7 +31,7 @@ GET: Get a book by id
 PUT: Update a book by its ID
 
 ## /books/issued
-
+                        //books.js-109
 GET: Get all issued Books
 
 ## /books/issued/withFine
@@ -48,3 +51,9 @@ GET: Get all issued books with the fine
     >> npm i nodemon --save-dev
 
     >> npm run dev
+
+
+MVC
+    >> M: Model (Schema, the structure of our mongodb collection) 
+    >> V: View (Frontend part) 
+    >> C: Controller (Brain or logic of a route)
